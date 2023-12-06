@@ -5,7 +5,9 @@ import ErrorComponent from "../../components/ErrorComponent";
 const HomePage = () => {
   return (
     <ErrorBoundary fallback={<ErrorComponent />}>
-      <HomeComponent />
+      <div className="flex h-screen items-center">
+        <HomeComponent />
+      </div>
     </ErrorBoundary>
   );
 };

@@ -1,8 +1,15 @@
 const HomeComponent = () => {
   return (
     <>
-      <h1 className="prose text-3xl font-bold m-2">Home Content!</h1>
-      <button className="btn btn-primary">Button</button>
+      <div className="card container w-96 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
