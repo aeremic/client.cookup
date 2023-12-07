@@ -2,6 +2,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import HomeComponent from "./components/HomeComponent";
 import ErrorComponent from "../../components/ErrorComponent";
 import NavbarComponent from "../../components/NavbarComponent";
+import FooterComponent from "../../components/FooterComponent";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
           <HomeComponent />
         </div>
       </ErrorBoundary>
+      <FooterComponent />
     </>
   );
 };
