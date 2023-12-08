@@ -24,18 +24,18 @@ const HomeComponent = () => {
   return (
     <>
       <div className="container w-auto">
-        <div className="grid grid-cols-2 gap-10">
-          <div className="col-span-2 w-auto h-48">
+        <div className="grid grid-cols-2 gap-6">
+          <div className="col-span-2 w-auto h-24">
             <div className="p-4 prose lg:prose-lg">
-              <h2 className="">
+              {/* <h3 className="">
                 <b>Unleash</b> your culinary creativity by discovering delicious
                 recipes.
                 <br />
-              </h2>
-              <h3>
+              </h3> */}
+              <h4>
                 <i>Choose</i> what you have in fridge and craft your next
                 culinary <b>masterpiece</b>!
-              </h3>
+              </h4>
             </div>
           </div>
           <div>
@@ -46,9 +46,9 @@ const HomeComponent = () => {
                   <input
                     type="text"
                     placeholder="Search"
-                    className="input input-bordered input-sm w-full max-w-xs"
+                    className="input input-bordered input-md w-full max-w-xs"
                   />
-                  <div className="mt-3 h-56 overflow-y-auto scrollbar-hide md:scrollbar-default">
+                  <div className="mt-3 h-56 overflow-y-auto">
                     {ingredients && ingredients.length > 0 ? (
                       ingredients.map((ingredient) => (
                         <label className="label cursor-pointer">
@@ -68,8 +68,8 @@ const HomeComponent = () => {
             <div className="card w-96 h-auto bg-base-200 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Picked items</h2>
-                <div className="form-control mt-10">
-                  <div className="mt-3 h-56 overflow-y-auto scrollbar-hide md:scrollbar-default">
+                <div className="form-control mt-2 mb-2">
+                  <div className="h-56 overflow-y-auto">
                     <label className="label cursor-pointer">
                       <span className="label-text">Item 1</span>
                       <input type="checkbox" className="checkbox" />
@@ -111,6 +111,9 @@ const HomeComponent = () => {
                       <input type="checkbox" className="checkbox" />
                     </label>
                   </div>
+                </div>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-md btn-primary">Buy Now</button>
                 </div>
               </div>
             </div>
