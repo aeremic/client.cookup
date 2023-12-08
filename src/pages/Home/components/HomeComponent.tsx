@@ -32,10 +32,10 @@ const HomeComponent = () => {
                 recipes.
                 <br />
               </h3> */}
-              <h4>
+              <h3>
                 <i>Choose</i> what you have in fridge and craft your next
                 culinary <b>masterpiece</b>!
-              </h4>
+              </h3>
             </div>
           </div>
           <div>
