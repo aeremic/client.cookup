@@ -43,7 +43,7 @@ const HomeComponent = () => {
           <div>
             <div className="card w-96 h-auto bg-base-200 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">Pick items that you already have</h2>
+                <h2 className="card-title">{t("PickItems")}</h2>
                 <div className="form-control mt-3">
                   <input
                     type="text"
@@ -69,7 +69,7 @@ const HomeComponent = () => {
           <div>
             <div className="card w-96 h-auto bg-base-200 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">Picked items</h2>
+                <h2 className="card-title">{t("PickedItems")}</h2>
                 <div className="form-control mt-2 mb-2">
                   <div className="h-56 overflow-y-auto">
                     <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
@@ -103,7 +103,7 @@ const HomeComponent = () => {
                 </div>
                 <div className="card-actions justify-end">
                   <button className="btn btn-md btn-primary">
-                    {t("Login")}
+                    {t("FindRecipes")}
                   </button>
                 </div>
               </div>

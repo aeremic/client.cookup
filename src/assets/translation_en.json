@@ -1,4 +1,7 @@
 {
     "Login": "Sign In",
-    "MainSubtitle": "<i>Choose</i> what you have in fridge and craft your next culinary <strong>masterpiece</strong>!"
+    "MainSubtitle": "<i>Choose</i> what you have in fridge and craft your next culinary <strong>masterpiece</strong>!",
+    "PickItems": "Pick items that you already have",
+    "PickedItems" : "Picked items",
+    "FindRecipes": "Find recipes"
 }
