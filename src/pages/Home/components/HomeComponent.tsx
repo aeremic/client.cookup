@@ -47,7 +47,6 @@ const HomeComponent = () => {
         : { ...ingredient, visible: false }
     );
 
-    debugger;
     setIngredients(changedIngredients);
   };
 
