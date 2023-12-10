@@ -2,38 +2,52 @@ import { ChangeEvent, useState } from "react";
 import { Ingredient } from "../models/IIngredient";
 import { Trans, useTranslation } from "react-i18next";
 
-const tempIngredients: Ingredient[] = [
-  { id: 1, name: "Spinach", visible: false },
-  { id: 2, name: "Quinoa", visible: false },
-  { id: 3, name: "Chickpeas", visible: false },
-  { id: 4, name: "Salmon", visible: false },
-  { id: 5, name: "Avocado", visible: false },
-  { id: 6, name: "Sweet potatoes", visible: false },
-  { id: 7, name: "Tomatoes", visible: false },
-  { id: 8, name: "Basil", visible: false },
-  { id: 9, name: "Feta cheese", visible: false },
-  { id: 10, name: "Almonds", visible: false },
-  { id: 11, name: "Tofu", visible: false },
-  { id: 12, name: "Bell peppers", visible: false },
-  { id: 13, name: "Black beans", visible: false },
-  { id: 14, name: "Greek yogurt", visible: false },
-  { id: 15, name: "Brown rice", visible: false },
+const initialIngredients: Ingredient[] = [
+  { id: 1, name: "Spinach", checked: false, visible: true },
+  { id: 2, name: "Quinoa", checked: false, visible: true },
+  { id: 3, name: "Chickpeas", checked: false, visible: true },
+  { id: 4, name: "Salmon", checked: false, visible: true },
+  { id: 5, name: "Avocado", checked: false, visible: true },
+  { id: 6, name: "Sweet potatoes", checked: false, visible: true },
+  { id: 7, name: "Tomatoes", checked: false, visible: true },
+  { id: 8, name: "Basil", checked: false, visible: true },
+  { id: 9, name: "Feta cheese", checked: false, visible: true },
+  { id: 10, name: "Almonds", checked: false, visible: true },
+  { id: 11, name: "Tofu", checked: false, visible: true },
+  { id: 12, name: "Bell peppers", checked: false, visible: true },
+  { id: 13, name: "Black beans", checked: false, visible: true },
+  { id: 14, name: "Greek yogurt", checked: false, visible: true },
+  { id: 15, name: "Brown rice", checked: false, visible: true },
 ];
 
 const HomeComponent = () => {
   const { t } = useTranslation();
 
-  const [ingredients, setIngredients] = useState<Ingredient[]>(tempIngredients);
+  const [ingredients, setIngredients] =
+    useState<Ingredient[]>(initialIngredients);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const query = event.target.value;
 
-    let changedIngredients = [...tempIngredients];
+    let changedIngredients = [...ingredients];
 
-    changedIngredients = changedIngredients.filter((ingredient) => {
-      return ingredient.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-    });
+    const changedIngredientsIds = changedIngredients
+      .filter((ingredient) => {
+        return (
+          ingredient.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        );
+      })
+      .map((ingredient) => ingredient.id);
 
+    changedIngredients = changedIngredients.map((ingredient) =>
+      changedIngredientsIds.find(
+        (changedIngredient) => ingredient.id === changedIngredient
+      )
+        ? { ...ingredient, visible: true }
+        : { ...ingredient, visible: false }
+    );
+
+    debugger;
     setIngredients(changedIngredients);
   };
 
@@ -47,8 +61,8 @@ const HomeComponent = () => {
         (ingredient) => ingredient.id === ingredientId
       );
 
-      changedIngredients[ingredientIndex].visible =
-        !changedIngredients[ingredientIndex].visible;
+      changedIngredients[ingredientIndex].checked =
+        !changedIngredients[ingredientIndex].checked;
 
       setIngredients(changedIngredients);
     }
@@ -83,20 +97,26 @@ const HomeComponent = () => {
                   />
                   <div className="mt-3 h-56 overflow-y-auto">
                     {ingredients && ingredients.length > 0 ? (
-                      ingredients.map((ingredient) => (
-                        <label
-                          className="label cursor-pointer mr-1"
-                          key={ingredient.id}
-                        >
-                          <span className="label-text">{ingredient.name}</span>
-                          <input
-                            type="checkbox"
-                            value={ingredient.id}
-                            className="checkbox"
-                            onChange={handleIngredientPickChange}
-                          />
-                        </label>
-                      ))
+                      ingredients.map(
+                        (ingredient) =>
+                          ingredient.visible && (
+                            <label
+                              className="label cursor-pointer mr-1"
+                              key={ingredient.id}
+                            >
+                              <span className="label-text">
+                                {ingredient.name}
+                              </span>
+                              <input
+                                type="checkbox"
+                                value={ingredient.id}
+                                className="checkbox"
+                                onChange={handleIngredientPickChange}
+                                checked={ingredient.checked}
+                              />
+                            </label>
+                          )
+                      )
                     ) : (
                       <></>
                     )}
@@ -116,7 +136,7 @@ const HomeComponent = () => {
                         <div
                           className="bg-base-300 p-3 mb-2 mr-1 rounded-lg"
                           key={ingredient.id}
-                          hidden={!ingredient.visible}
+                          hidden={!ingredient.checked}
                         >
                           <p className="label-text">{ingredient.name}</p>
                         </div>
