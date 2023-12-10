@@ -1,30 +1,47 @@
-import { ChangeEvent, useState } from "react";
-import { Ingredient } from "../models/IIngredient";
+import { ChangeEvent, useEffect, useState } from "react";
+import { IIngredient } from "../models/IIngredient";
 import { Trans, useTranslation } from "react-i18next";
+import { getIngredients } from "../../../services/axios/endpoint-calls/ingredient";
+import { HttpStatusCode } from "axios";
 
-const initialIngredients: Ingredient[] = [
-  { id: 1, name: "Spinach", checked: false, visible: true },
-  { id: 2, name: "Quinoa", checked: false, visible: true },
-  { id: 3, name: "Chickpeas", checked: false, visible: true },
-  { id: 4, name: "Salmon", checked: false, visible: true },
-  { id: 5, name: "Avocado", checked: false, visible: true },
-  { id: 6, name: "Sweet potatoes", checked: false, visible: true },
-  { id: 7, name: "Tomatoes", checked: false, visible: true },
-  { id: 8, name: "Basil", checked: false, visible: true },
-  { id: 9, name: "Feta cheese", checked: false, visible: true },
-  { id: 10, name: "Almonds", checked: false, visible: true },
-  { id: 11, name: "Tofu", checked: false, visible: true },
-  { id: 12, name: "Bell peppers", checked: false, visible: true },
-  { id: 13, name: "Black beans", checked: false, visible: true },
-  { id: 14, name: "Greek yogurt", checked: false, visible: true },
-  { id: 15, name: "Brown rice", checked: false, visible: true },
-];
+// const initialIngredients: IIngredient[] = [
+//   { id: 1, name: "Spinach", checked: false, visible: true },
+//   { id: 2, name: "Quinoa", checked: false, visible: true },
+//   { id: 3, name: "Chickpeas", checked: false, visible: true },
+//   { id: 4, name: "Salmon", checked: false, visible: true },
+//   { id: 5, name: "Avocado", checked: false, visible: true },
+//   { id: 6, name: "Sweet potatoes", checked: false, visible: true },
+//   { id: 7, name: "Tomatoes", checked: false, visible: true },
+//   { id: 8, name: "Basil", checked: false, visible: true },
+//   { id: 9, name: "Feta cheese", checked: false, visible: true },
+//   { id: 10, name: "Almonds", checked: false, visible: true },
+//   { id: 11, name: "Tofu", checked: false, visible: true },
+//   { id: 12, name: "Bell peppers", checked: false, visible: true },
+//   { id: 13, name: "Black beans", checked: false, visible: true },
+//   { id: 14, name: "Greek yogurt", checked: false, visible: true },
+//   { id: 15, name: "Brown rice", checked: false, visible: true },
+// ];
 
 const HomeComponent = () => {
   const { t } = useTranslation();
 
-  const [ingredients, setIngredients] =
-    useState<Ingredient[]>(initialIngredients);
+  const [initialIngredients, setInitialIngredients] = useState<IIngredient[]>(
+    []
+  );
+  const [ingredients, setIngredients] = useState<IIngredient[]>([]);
+
+  useEffect(() => {
+    const fetchIngredients = async () => {
+      const res: any = await getIngredients();
+      debugger;
+      if (res && res.status === HttpStatusCode.Ok && res.data) {
+        setInitialIngredients(res.data);
+        setIngredients(initialIngredients);
+      }
+    };
+
+    fetchIngredients();
+  }, []);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const query = event.target.value;
