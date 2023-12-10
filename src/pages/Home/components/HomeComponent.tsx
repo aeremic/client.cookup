@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Ingredient } from "../models/IIngredient";
+import { Trans, useTranslation } from "react-i18next";
 
 const tempIngredients: Ingredient[] = [
   { name: "Spinach", visible: false },
@@ -20,6 +21,8 @@ const tempIngredients: Ingredient[] = [
 ];
 
 const HomeComponent = () => {
+  const { t } = useTranslation();
+
   const [ingredients, setIngredients] = useState<Ingredient[]>(tempIngredients);
   return (
     <>
@@ -33,8 +36,7 @@ const HomeComponent = () => {
                 <br />
               </h3> */}
               <h3>
-                <i>Choose</i> what you have in fridge and craft your next
-                culinary <b>masterpiece</b>!
+                <Trans i18nKey="MainSubtitle" />
               </h3>
             </div>
           </div>
@@ -51,7 +53,7 @@ const HomeComponent = () => {
                   <div className="mt-3 h-56 overflow-y-auto">
                     {ingredients && ingredients.length > 0 ? (
                       ingredients.map((ingredient) => (
-                        <label className="label cursor-pointer">
+                        <label className="label cursor-pointer mr-2">
                           <span className="label-text">{ingredient.name}</span>
                           <input type="checkbox" className="checkbox" />
                         </label>
@@ -70,50 +72,39 @@ const HomeComponent = () => {
                 <h2 className="card-title">Picked items</h2>
                 <div className="form-control mt-2 mb-2">
                   <div className="h-56 overflow-y-auto">
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 1</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 2</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                    <label className="label cursor-pointer">
-                      <span className="label-text">Item 3</span>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
+                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                      <p className="label-text">Item 1</p>
+                    </div>
                   </div>
                 </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-md btn-primary">Buy Now</button>
+                  <button className="btn btn-md btn-primary">
+                    {t("Login")}
+                  </button>
                 </div>
               </div>
             </div>
