@@ -53,7 +53,7 @@ const HomeComponent = () => {
                   <div className="mt-3 h-56 overflow-y-auto">
                     {ingredients && ingredients.length > 0 ? (
                       ingredients.map((ingredient) => (
-                        <label className="label cursor-pointer mr-2">
+                        <label className="label cursor-pointer mr-1">
                           <span className="label-text">{ingredient.name}</span>
                           <input type="checkbox" className="checkbox" />
                         </label>
@@ -72,36 +72,36 @@ const HomeComponent = () => {
                 <h2 className="card-title">{t("PickedItems")}</h2>
                 <div className="form-control mt-2 mb-2">
                   <div className="h-56 overflow-y-auto">
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
-                    <div className="bg-base-300 p-3 mb-2 mr-2 rounded-lg">
+                    <div className="bg-base-300 p-3 mb-2 mr-1 rounded-lg">
                       <p className="label-text">Item 1</p>
                     </div>
                   </div>
                 </div>
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-end mr-1">
                   <button className="btn btn-md btn-primary">
                     {t("FindRecipes")}
                   </button>
