@@ -4,24 +4,6 @@ import { Trans, useTranslation } from "react-i18next";
 import { getIngredients } from "../../../services/axios/endpoint-calls/ingredient";
 import { HttpStatusCode } from "axios";
 
-// const initialIngredients: IIngredient[] = [
-//   { id: 1, name: "Spinach", checked: false, visible: true },
-//   { id: 2, name: "Quinoa", checked: false, visible: true },
-//   { id: 3, name: "Chickpeas", checked: false, visible: true },
-//   { id: 4, name: "Salmon", checked: false, visible: true },
-//   { id: 5, name: "Avocado", checked: false, visible: true },
-//   { id: 6, name: "Sweet potatoes", checked: false, visible: true },
-//   { id: 7, name: "Tomatoes", checked: false, visible: true },
-//   { id: 8, name: "Basil", checked: false, visible: true },
-//   { id: 9, name: "Feta cheese", checked: false, visible: true },
-//   { id: 10, name: "Almonds", checked: false, visible: true },
-//   { id: 11, name: "Tofu", checked: false, visible: true },
-//   { id: 12, name: "Bell peppers", checked: false, visible: true },
-//   { id: 13, name: "Black beans", checked: false, visible: true },
-//   { id: 14, name: "Greek yogurt", checked: false, visible: true },
-//   { id: 15, name: "Brown rice", checked: false, visible: true },
-// ];
-
 const HomeComponent = () => {
   const { t } = useTranslation();
 
@@ -95,9 +77,9 @@ const HomeComponent = () => {
   return (
     <>
       <div className="container w-auto">
-        <div className="grid grid-cols-2 gap-6">
-          <div className="col-span-2 w-auto h-24">
-            <div className="p-4 prose lg:prose-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-6">
+          <div className="sm:col-span-2 h-28 sm:h-24">
+            <div className="p-4 sm:p-4 prose lg:prose-lg text-center sm:text-left">
               {/* <h3 className="">
                 <b>Unleash</b> your culinary creativity by discovering delicious
                 recipes.
@@ -109,7 +91,7 @@ const HomeComponent = () => {
             </div>
           </div>
           <div>
-            <div className="card w-96 h-auto bg-base-200 shadow-xl">
+            <div className="card w-auto sm:w-96 h-96 sm:h-auto bg-base-200 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">{t("PickItems")}</h2>
                 <div className="form-control mt-3">
@@ -117,9 +99,9 @@ const HomeComponent = () => {
                     type="text"
                     placeholder="Search"
                     onChange={handleSearchChange}
-                    className="input input-bordered input-md w-full max-w-xs"
+                    className="input input-bordered input-md w-full"
                   />
-                  <div className="mt-3 h-56 overflow-y-auto">
+                  <div className="mt-3 h-56 sm:h-56 overflow-y-auto">
                     {ingredients && ingredients.length > 0 ? (
                       ingredients.map(
                         (ingredient) =>
@@ -129,7 +111,7 @@ const HomeComponent = () => {
                               key={ingredient.id}
                             >
                               <span className="label-text">
-                                {ingredient.id}. {ingredient.name}
+                                {ingredient.name}
                               </span>
                               <input
                                 type="checkbox"
@@ -150,11 +132,11 @@ const HomeComponent = () => {
             </div>
           </div>
           <div>
-            <div className="card w-96 h-auto bg-base-200 shadow-xl">
+            <div className="card mt-8 sm:mt-0 mb-8 sm:mb-0 w-auto sm:w-96 h-96 sm:h-auto bg-base-200 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">{t("PickedItems")}</h2>
                 <div className="form-control mt-2 mb-2">
-                  <div className="h-56 overflow-y-auto">
+                  <div className="h-56 sm:h-56 overflow-y-auto">
                     {ingredients && ingredients.length > 0 ? (
                       ingredients.map((ingredient) => (
                         <div

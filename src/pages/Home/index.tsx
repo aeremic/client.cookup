@@ -9,7 +9,7 @@ const HomePage = () => {
     <>
       <NavbarComponent />
       <ErrorBoundary fallback={<ErrorComponent />}>
-        <div className="flex h-screen items-center">
+        <div className="sm:flex sm:h-screen sm:items-center">
           <HomeComponent />
         </div>
       </ErrorBoundary>
