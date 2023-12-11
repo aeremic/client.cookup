@@ -25,22 +25,30 @@ import { HttpStatusCode } from "axios";
 const HomeComponent = () => {
   const { t } = useTranslation();
 
-  const [initialIngredients, setInitialIngredients] = useState<IIngredient[]>(
-    []
-  );
+  let initialIngredients: IIngredient[] = [];
   const [ingredients, setIngredients] = useState<IIngredient[]>([]);
 
   useEffect(() => {
-    const fetchIngredients = async () => {
-      const res: any = await getIngredients();
-      debugger;
-      if (res && res.status === HttpStatusCode.Ok && res.data) {
-        setInitialIngredients(res.data);
+    getIngredients().then((res) => {
+      if (
+        res &&
+        res.status === HttpStatusCode.Ok &&
+        res.data &&
+        res.data.length > 0
+      ) {
+        initialIngredients = [];
+        res.data.forEach((element: any) => {
+          initialIngredients.push({
+            id: element.id,
+            name: element.name,
+            checked: false,
+            visible: true,
+          });
+        });
+
         setIngredients(initialIngredients);
       }
-    };
-
-    fetchIngredients();
+    });
   }, []);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -121,7 +129,7 @@ const HomeComponent = () => {
                               key={ingredient.id}
                             >
                               <span className="label-text">
-                                {ingredient.name}
+                                {ingredient.id}. {ingredient.name}
                               </span>
                               <input
                                 type="checkbox"
