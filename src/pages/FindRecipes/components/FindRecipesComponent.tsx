@@ -49,14 +49,14 @@ const FindRecipesComponent = () => {
             >
               <figure>
                 <img
-                  className="w-96 h-full"
+                  className="w-96 sm:w-80 h-full"
                   src="https://hips.hearstapps.com/hmg-prod/images/delish-bolognese-horizontal-1-1540572556.jpg"
                 />
               </figure>
-              <div className="card-body">
+              <div className="card-body sm:max-w-md">
                 <h2 className="card-title">{recipe.name}</h2>
                 <div>
-                  <p>{recipe.description}</p>
+                  <p className="mb-1">{recipe.description}</p>
                   {recipe.ingredients.length > 0 ? (
                     recipe.ingredients.map((ingredient, index) => (
                       <div
