@@ -3,9 +3,11 @@ import { IIngredient } from "../models/IIngredient";
 import { Trans, useTranslation } from "react-i18next";
 import { getIngredients } from "../../../services/axios/endpoint-calls/ingredient";
 import { HttpStatusCode } from "axios";
+import { useNavigate } from "react-router-dom";
 
-const HomeComponent = () => {
+const PickItemsComponent = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   let initialIngredients: IIngredient[] = [];
   const [ingredients, setIngredients] = useState<IIngredient[]>([]);
@@ -72,6 +74,10 @@ const HomeComponent = () => {
 
       setIngredients(changedIngredients);
     }
+  };
+
+  const handleFindRecipesClick = (): void => {
+    navigate("/findrecipes");
   };
 
   return (
@@ -153,7 +159,10 @@ const HomeComponent = () => {
                   </div>
                 </div>
                 <div className="card-actions justify-end mr-1">
-                  <button className="btn btn-md btn-primary">
+                  <button
+                    className="btn btn-md btn-primary"
+                    onClick={handleFindRecipesClick}
+                  >
                     {t("FindRecipes")}
                   </button>
                 </div>
@@ -166,4 +175,4 @@ const HomeComponent = () => {
   );
 };
 
-export default HomeComponent;
+export default PickItemsComponent;
