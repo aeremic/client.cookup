@@ -1,4 +1,39 @@
+import { HttpStatusCode } from "axios";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
+import { getRecommendedRecipes } from "../../../services/axios/endpoint-calls/recipes/recipes";
+import { IGetRecommendedRecipes } from "../models/IGetRecommendedRecipes";
+
 const FindRecipesComponent = () => {
+  const { t } = useTranslation();
+
+  const [queryParameters] = useSearchParams();
+
+  const picksParam: string | null = queryParameters.get("picks");
+  const ingredientPicks =
+    picksParam != null
+      ? picksParam.split(",").map((pick: string) => Number.parseInt(pick))
+      : [];
+
+  const [recommendedRecipes, setRecommendedRecipes] = useState([]);
+
+  useEffect(() => {
+    const modelToPost: IGetRecommendedRecipes = {
+      pickedIngredients: ingredientPicks,
+    };
+
+    getRecommendedRecipes(modelToPost).then((res) => {
+      if (
+        res &&
+        res.status === HttpStatusCode.Created &&
+        res.data &&
+        res.data.length > 0
+      ) {
+      }
+    });
+  }, []);
+
   return (
     <div className="container min-h-screen w-auto sm:w-1/2">
       <div className="grid grid-cols-1 gap-6">
@@ -29,13 +64,13 @@ const FindRecipesComponent = () => {
                 type="radio"
                 name="rating-3"
                 className="mask mask-heart bg-red-400"
+                checked
+                readOnly
               />
               <input
                 type="radio"
                 name="rating-3"
                 className="mask mask-heart bg-red-400"
-                readOnly
-                checked
               />
               <input
                 type="radio"
@@ -87,8 +122,8 @@ const FindRecipesComponent = () => {
                 type="radio"
                 name="rating-3"
                 className="mask mask-heart bg-red-400"
-                readOnly
                 checked
+                readOnly
               />
               <input
                 type="radio"

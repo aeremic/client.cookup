@@ -53,7 +53,7 @@ export const getById = async (
 
 export const post = async (
   endpoint: string,
-  modelToPost: never,
+  modelToPost: any,
   useAuthHeader = true,
   contentType = "application/json"
 ) => {

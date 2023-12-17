@@ -1,12 +1,13 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { IIngredient } from "../models/IIngredient";
 import { Trans, useTranslation } from "react-i18next";
-import { getIngredients } from "../../../services/axios/endpoint-calls/ingredient";
+import { getIngredients } from "../../../services/axios/endpoint-calls/recipes/ingredient";
 import { HttpStatusCode } from "axios";
 import { useNavigate } from "react-router-dom";
 
 const PickItemsComponent = () => {
   const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   let initialIngredients: IIngredient[] = [];
@@ -77,7 +78,15 @@ const PickItemsComponent = () => {
   };
 
   const handleFindRecipesClick = (): void => {
-    navigate("/findrecipes");
+    const pickedItems = ingredients.filter((ingredient) => ingredient.checked);
+    const queryData = pickedItems
+      .map((ingredient) => `${ingredient.id}`)
+      .join(",");
+
+    navigate({
+      pathname: "/findrecipes",
+      search: `?picks=${queryData}`,
+    });
   };
 
   return (

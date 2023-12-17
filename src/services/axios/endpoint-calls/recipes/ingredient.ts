@@ -1,4 +1,4 @@
-import { get } from "../base";
+import { get } from "../../base";
 
 const URL = "/ingredients";
 
