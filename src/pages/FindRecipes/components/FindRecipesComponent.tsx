@@ -59,7 +59,12 @@ const FindRecipesComponent = () => {
                   <p>{recipe.description}</p>
                   {recipe.ingredients.length > 0 ? (
                     recipe.ingredients.map((ingredient, index) => (
-                      <div key={index} className="badge badge-accent m-1">
+                      <div
+                        key={index}
+                        className={
+                          index < 2 ? "badge badge-accent m-1" : "hidden"
+                        }
+                      >
                         {ingredient.name}
                       </div>
                     ))
