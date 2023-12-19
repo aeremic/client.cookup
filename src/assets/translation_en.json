@@ -3,5 +3,8 @@
     "MainSubtitle": "<i>Choose</i> what you have in fridge and craft your next culinary <strong>masterpiece</strong>!",
     "PickItems": "Pick items that you already have",
     "PickedItems" : "Picked items",
-    "FindRecipes": "Find recipes"
+    "FindRecipes": "Find recipes",
+    "RecommendedRecipesSubtitle": "<i>These</i> are the recipe picks that we recommend for <strong>you</strong>.",
+    "NoRecipesFound": "No recipes found",
+    "WeDidntFindAnyRecepiesWithThoseIngredients": "We didn't find any recepies with those ingredients :("
 }
