@@ -1,6 +1,6 @@
 import { HttpStatusCode } from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { getRecommendedRecipes } from "../../../services/axios/endpoint-calls/recipes/recipes";
 import { IGetRecommendedRecipes } from "../models/IGetRecommendedRecipes";
 import { IRecommendedRecipe } from "../models/IRecommendedRecipe";
@@ -8,6 +8,8 @@ import { Trans, useTranslation } from "react-i18next";
 
 const FindRecipesComponent = () => {
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
 
   const [queryParameters] = useSearchParams();
 
@@ -34,6 +36,10 @@ const FindRecipesComponent = () => {
       }
     });
   }, []);
+
+  const handleLetsCookClick = (id: number): void => {
+    navigate(`/cooking/${id}`);
+  };
 
   return (
     <div className="container min-h-screen w-auto sm:w-1/2">
@@ -75,7 +81,9 @@ const FindRecipesComponent = () => {
                       ) : (
                         <></>
                       )}
-                      <div className="badge badge-ghost m-1">& more</div>
+                      <div className="badge badge-ghost m-1">
+                        {t("AndMore")}
+                      </div>
                     </div>
                     <div className="rating gap-1">
                       <input
@@ -107,7 +115,14 @@ const FindRecipesComponent = () => {
                       />
                     </div>
                     <div className="card-actions justify-end">
-                      <button className="btn btn-primary">Let's cook!</button>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => {
+                          handleLetsCookClick(recipe.id);
+                        }}
+                      >
+                        {t("LetsCook")}
+                      </button>
                     </div>
                   </div>
                 </div>
