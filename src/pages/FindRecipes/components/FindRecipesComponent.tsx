@@ -38,7 +38,7 @@ const FindRecipesComponent = () => {
   }, []);
 
   const handleLetsCookClick = (id: number): void => {
-    navigate(`/cooking/${id}`);
+    navigate(`/cooking?recipeId=${id}`);
   };
 
   return (

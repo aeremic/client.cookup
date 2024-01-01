@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<PickItemsPage />} />
         <Route path="/pickitems" element={<PickItemsPage />} />
         <Route path="/findrecipes" element={<FindRecipesPage />} />
-        <Route path="/cooking/:id" element={<CookingPage />} />
+        <Route path="/cooking" element={<CookingPage />} />
       </Routes>
     </BrowserRouter>
   );
