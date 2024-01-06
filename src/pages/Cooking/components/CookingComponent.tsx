@@ -25,6 +25,31 @@ const CookingComponent = () => {
     }
   }, [recipeId]);
 
+  const parseComplexity = (complexity: number): string => {
+    let result: string;
+
+    switch (complexity) {
+      case 0: {
+        result = "Easy";
+        break;
+      }
+      case 1: {
+        result = "Moderate";
+        break;
+      }
+      case 2: {
+        result = "Hard";
+        break;
+      }
+      default: {
+        result = "";
+        break;
+      }
+    }
+
+    return result;
+  };
+
   return (
     <div className="container min-h-screen w-auto sm:w-1/2">
       {recipe && isRecipeLoaded ? (
@@ -34,13 +59,26 @@ const CookingComponent = () => {
             <div className="card-body container mx-auto">
               <h2 className="card-title">{recipe.name}</h2>
               <div>
-                <div className="badge badge-ghost mr-1">15 min</div>
-                <div className="badge badge-ghost mr-1">Medium</div>
-                <div className="badge badge-ghost mr-1">325 kcal</div>
+                {/* <div className="badge badge-ghost mr-1">15 min</div> */}
+                {recipe.complexity && (
+                  <div className="badge badge-ghost mr-1">
+                    {parseComplexity(0)}
+                  </div>
+                )}
+                {recipe.calories && (
+                  <div className="badge badge-ghost mr-1">
+                    {recipe.calories} kcal
+                  </div>
+                )}
+                {recipe.plateQuantity && (
+                  <div className="badge badge-ghost mr-1">
+                    {recipe.plateQuantity} persons
+                  </div>
+                )}
               </div>
               <div className="divider"></div>
               <div>
-                {recipe.ingredients.length > 0 ? (
+                {recipe.ingredients && recipe.ingredients.length > 0 ? (
                   <>
                     <div>Ingredients</div>
                     <div className="m-1 border-2 rounded-2xl overflow-x-auto">
@@ -62,7 +100,7 @@ const CookingComponent = () => {
               </div>
               <div className="divider"></div>
               <div>
-                {recipe.steps.length > 0 ? (
+                {recipe.steps && recipe.steps.length > 0 ? (
                   <>
                     <div>Procedure</div>
                     <div className="m-1 border-2 rounded-2xl overflow-x-auto">
