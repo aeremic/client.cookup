@@ -20,7 +20,6 @@ const CookingComponent = () => {
         if (res && res.status === HttpStatusCode.Ok && res.data) {
           setRecipe(res.data);
           setIsRecipeLoaded(true);
-          debugger;
         }
       });
     }
@@ -62,7 +61,27 @@ const CookingComponent = () => {
                 )}
               </div>
               <div className="divider"></div>
-              <div>Procedure</div>
+              <div>
+                {recipe.steps.length > 0 ? (
+                  <>
+                    <div>Procedure</div>
+                    <div className="m-1 border-2 rounded-2xl overflow-x-auto">
+                      <table className="table table-zebra">
+                        <tbody>
+                          {recipe.steps.map((step, index) => (
+                            <tr key={index}>
+                              <th>{index + 1}</th>
+                              <td>{step.value}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
           </div>
         </div>
