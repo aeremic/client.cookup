@@ -56,12 +56,14 @@ const CookingComponent = () => {
         <div className="grid grid-cols-1 gap-6">
           <div className="text-center"></div>
           <div className="card bg-base-100 shadow-xl">
-            <figure>
-              <img
-                className="w-full sm:w-96 sm:rounded-md shadow-xl"
-                src={recipe.thumbnailPath}
-              />
-            </figure>
+            {recipe.thumbnailPath && (
+              <figure>
+                <img
+                  className="w-full sm:w-96 sm:rounded-md shadow-xl"
+                  src={recipe.thumbnailPath}
+                />
+              </figure>
+            )}
             <div className="card-body container mx-auto">
               <h2 className="card-title">{recipe.name}</h2>
               <div>

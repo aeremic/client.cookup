@@ -57,12 +57,14 @@ const FindRecipesComponent = () => {
                   key={index}
                   className="card sm:card-side bg-base-100 shadow-xl"
                 >
-                  <figure>
-                    <img
-                      className="w-96 sm:w-80 h-full"
-                      src={recipe.thumbnailPath}
-                    />
-                  </figure>
+                  {recipe.thumbnailPath && (
+                    <figure>
+                      <img
+                        className="w-96 sm:w-80 h-full"
+                        src={recipe.thumbnailPath}
+                      />
+                    </figure>
+                  )}
                   <div className="card-body sm:max-w-md">
                     <h2 className="card-title">{recipe.name}</h2>
                     <div>
