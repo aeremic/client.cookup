@@ -57,7 +57,10 @@ const CookingComponent = () => {
           <div className="text-center"></div>
           <div className="card bg-base-100 shadow-xl">
             <figure>
-              <img className="w-full h-full" src={recipe.thumbnailPath} />
+              <img
+                className="w-full sm:w-96 sm:rounded-md shadow-xl"
+                src={recipe.thumbnailPath}
+              />
             </figure>
             <div className="card-body container mx-auto">
               <h2 className="card-title">{recipe.name}</h2>
