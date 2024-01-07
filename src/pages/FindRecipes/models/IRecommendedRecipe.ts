@@ -4,6 +4,6 @@ export interface IRecommendedRecipe {
   id: number;
   name: string;
   description: string;
-  thumbnail: string;
+  thumbnailPath: string;
   ingredients: IIngredient[];
 }
