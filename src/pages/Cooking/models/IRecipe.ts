@@ -7,6 +7,7 @@ export interface IRecipe {
   complexity?: number;
   calories?: number;
   plateQuantity: number;
+  thumbnailPath: string;
 
   steps?: IStep[];
   ingredients?: IIngredient[];

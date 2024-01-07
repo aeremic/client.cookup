@@ -55,7 +55,10 @@ const CookingComponent = () => {
       {recipe && isRecipeLoaded ? (
         <div className="grid grid-cols-1 gap-6">
           <div className="text-center"></div>
-          <div className="card sm:card-side bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl">
+            <figure>
+              <img className="w-full h-full" src={recipe.thumbnailPath} />
+            </figure>
             <div className="card-body container mx-auto">
               <h2 className="card-title">{recipe.name}</h2>
               <div>
@@ -80,7 +83,7 @@ const CookingComponent = () => {
               <div>
                 {recipe.ingredients && recipe.ingredients.length > 0 ? (
                   <>
-                    <div>Ingredients</div>
+                    <p className="mb-3">Ingredients</p>
                     <div className="m-1 border-2 rounded-2xl overflow-x-auto">
                       <table className="table table-zebra">
                         <tbody>
@@ -102,7 +105,7 @@ const CookingComponent = () => {
               <div>
                 {recipe.steps && recipe.steps.length > 0 ? (
                   <>
-                    <div>Procedure</div>
+                    <p className="mb-3">Procedure</p>
                     <div className="m-1 border-2 rounded-2xl overflow-x-auto">
                       <table className="table table-zebra">
                         <tbody>

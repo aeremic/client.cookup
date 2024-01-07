@@ -60,7 +60,7 @@ const FindRecipesComponent = () => {
                   <figure>
                     <img
                       className="w-96 sm:w-80 h-full"
-                      src="https://hips.hearstapps.com/hmg-prod/images/delish-bolognese-horizontal-1-1540572556.jpg"
+                      src={recipe.thumbnailPath}
                     />
                   </figure>
                   <div className="card-body sm:max-w-md">
