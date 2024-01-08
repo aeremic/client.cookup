@@ -54,7 +54,6 @@ const CookingComponent = () => {
     <div className="container min-h-screen w-auto sm:w-1/2">
       {recipe && isRecipeLoaded ? (
         <div className="grid grid-cols-1 gap-6">
-          <div className="text-center"></div>
           <div className="card bg-base-100 shadow-xl">
             {recipe.thumbnailPath && (
               <figure>
