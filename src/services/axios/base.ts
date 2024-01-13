@@ -1,12 +1,12 @@
 import axios from "axios";
-import { AuthHeader } from "./headers";
+import { createAuthHeader } from "./headers";
 
 export const API = import.meta.env.VITE_API_URL;
 
 export const get = async (endpoint: string, useAuthHeader = true) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
-    header.Authorization = AuthHeader();
+    header.Authorization = createAuthHeader();
   }
 
   const URL: string = API + endpoint;
@@ -16,7 +16,7 @@ export const get = async (endpoint: string, useAuthHeader = true) => {
 export const getFile = async (endpoint: string, useAuthHeader = true) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
-    header.Authorization = AuthHeader();
+    header.Authorization = createAuthHeader();
   }
 
   const URL: string = API + endpoint;
@@ -30,7 +30,7 @@ export const getFileById = async (
 ) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
-    header.Authorization = AuthHeader();
+    header.Authorization = createAuthHeader();
   }
 
   const URL: string = API + endpoint;
@@ -44,7 +44,7 @@ export const getById = async (
 ) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
-    header.Authorization = AuthHeader();
+    header.Authorization = createAuthHeader();
   }
 
   const URL: string = API + endpoint;
@@ -59,7 +59,7 @@ export const post = async (
 ) => {
   const header = { Authorization: "", "Content-Type": contentType };
   if (useAuthHeader) {
-    header.Authorization = AuthHeader();
+    header.Authorization = createAuthHeader();
   }
 
   const URL: string = API + endpoint;
@@ -73,7 +73,7 @@ export const remove = async (
 ) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
-    header.Authorization = AuthHeader();
+    header.Authorization = createAuthHeader();
   }
 
   const URL: string = API + endpoint;

@@ -3,8 +3,11 @@ import { IRecipe } from "../models/IRecipe";
 import { useSearchParams } from "react-router-dom";
 import { HttpStatusCode } from "axios";
 import { getRecipe } from "../../../services/axios/endpoint-calls/recipes/recipes";
+import { useTranslation } from "react-i18next";
 
 const CookingComponent = () => {
+  const { t } = useTranslation();
+
   const [queryParameters] = useSearchParams();
 
   const recipeIdQueryParam: string | null = queryParameters.get("recipeId");
@@ -74,12 +77,12 @@ const CookingComponent = () => {
                 )}
                 {recipe.calories && (
                   <div className="badge badge-ghost mr-1">
-                    {recipe.calories} kcal
+                    {recipe.calories} {t("kcal")}
                   </div>
                 )}
                 {recipe.plateQuantity && (
                   <div className="badge badge-ghost mr-1">
-                    {recipe.plateQuantity} persons
+                    {recipe.plateQuantity} {t("persons")}
                   </div>
                 )}
               </div>
@@ -87,7 +90,7 @@ const CookingComponent = () => {
               <div>
                 {recipe.ingredients && recipe.ingredients.length > 0 ? (
                   <>
-                    <p className="mb-3">Ingredients</p>
+                    <p className="mb-3">{t("Ingredients")}</p>
                     <div className="m-1 border-2 rounded-2xl overflow-x-auto">
                       <table className="table table-zebra">
                         <tbody>
@@ -109,7 +112,7 @@ const CookingComponent = () => {
               <div>
                 {recipe.steps && recipe.steps.length > 0 ? (
                   <>
-                    <p className="mb-3">Procedure</p>
+                    <p className="mb-3">{t("Procedure")}</p>
                     <div className="m-1 border-2 rounded-2xl overflow-x-auto">
                       <table className="table table-zebra">
                         <tbody>

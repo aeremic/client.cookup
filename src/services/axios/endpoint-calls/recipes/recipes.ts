@@ -7,7 +7,7 @@ export const getRecommendedRecipes = async (
   modelToPost: IGetRecommendedRecipes
 ) => {
   try {
-    return await post(`${URL}/getrecommendedrecipes`, modelToPost); // TODO: Remove false flag!
+    return await post(`${URL}/getrecommendedrecipes`, modelToPost);
   } catch (err) {
     console.log(err); // TODO: Fix for PROD.
   }
@@ -15,7 +15,7 @@ export const getRecommendedRecipes = async (
 
 export const getRecipe = async (id: number) => {
   try {
-    return await get(`${URL}/getRecipe/${id}`); // TODO: Remove false flag!
+    return await get(`${URL}/getRecipe/${id}`);
   } catch (err) {
     console.log(err); // TODO: Fix for PROD.
   }

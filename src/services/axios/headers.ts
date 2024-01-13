@@ -1,5 +1,7 @@
-export const AuthHeader = () => {
-  const accessToken = localStorage.getItem("accessToken");
+import { getItemByKey } from "../store/localStorage";
+
+export const createAuthHeader = () => {
+  const accessToken = getItemByKey("accessToken");
   let parsedAccessToken = null;
   if (accessToken) {
     parsedAccessToken = JSON.parse(accessToken);

@@ -5,7 +5,7 @@ const URL = "/auth";
 
 export const externalLogin = async (modelToPost: IExternalLogin) => {
   try {
-    return await post(`${URL}/externallogin`, modelToPost); // TODO: Remove false flag!
+    return await post(`${URL}/externallogin`, modelToPost, false);
   } catch (err) {
     console.log(err); // TODO: Fix for PROD.
   }
