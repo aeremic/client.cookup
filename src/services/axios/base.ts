@@ -3,7 +3,7 @@ import { createAuthHeader } from "./headers";
 
 export const API = import.meta.env.VITE_API_URL;
 
-export const get = async (endpoint: string, useAuthHeader = true) => {
+export const axiosGet = async (endpoint: string, useAuthHeader: boolean) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
     header.Authorization = createAuthHeader();
@@ -13,34 +13,10 @@ export const get = async (endpoint: string, useAuthHeader = true) => {
   return axios.get(URL, { headers: header });
 };
 
-export const getFile = async (endpoint: string, useAuthHeader = true) => {
-  const header = { Authorization: "" };
-  if (useAuthHeader) {
-    header.Authorization = createAuthHeader();
-  }
-
-  const URL: string = API + endpoint;
-  return axios.get(URL, { headers: header, responseType: "blob" });
-};
-
-export const getFileById = async (
+export const axiosGetById = async (
   endpoint: string,
   id: number,
-  useAuthHeader = true
-) => {
-  const header = { Authorization: "" };
-  if (useAuthHeader) {
-    header.Authorization = createAuthHeader();
-  }
-
-  const URL: string = API + endpoint;
-  return axios.get(`${URL}/${id}`, { headers: header, responseType: "blob" });
-};
-
-export const getById = async (
-  endpoint: string,
-  id: number,
-  useAuthHeader = true
+  useAuthHeader: boolean
 ) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
@@ -51,11 +27,11 @@ export const getById = async (
   return axios.get(`${URL}/${id}`, { headers: header });
 };
 
-export const post = async (
+export const axiosPost = async (
   endpoint: string,
   modelToPost: any,
-  useAuthHeader = true,
-  contentType = "application/json"
+  useAuthHeader: boolean,
+  contentType: string
 ) => {
   const header = { Authorization: "", "Content-Type": contentType };
   if (useAuthHeader) {
@@ -66,10 +42,10 @@ export const post = async (
   return axios.post(URL, modelToPost, { headers: header });
 };
 
-export const remove = async (
+export const axiosRemove = async (
   endpoint: string,
   id: number,
-  useAuthHeader = true
+  useAuthHeader: boolean
 ) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
