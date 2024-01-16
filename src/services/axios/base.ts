@@ -1,5 +1,6 @@
-import axios from "axios";
+import axios, { AxiosResponse, HttpStatusCode } from "axios";
 import { createAuthHeader } from "./headers";
+import { removeCurrentUserData } from "../../store/local-storage-auth-helper";
 
 export const API = import.meta.env.VITE_API_URL;
 
@@ -10,7 +11,11 @@ export const get = async (endpoint: string, useAuthHeader = true) => {
   }
 
   const URL: string = API + endpoint;
-  return axios.get(URL, { headers: header });
+  const endpointCallResult = await axios.get(URL, { headers: header });
+
+  checkCurrentUserData(endpointCallResult);
+
+  return endpointCallResult;
 };
 
 export const getFile = async (endpoint: string, useAuthHeader = true) => {
@@ -20,7 +25,14 @@ export const getFile = async (endpoint: string, useAuthHeader = true) => {
   }
 
   const URL: string = API + endpoint;
-  return axios.get(URL, { headers: header, responseType: "blob" });
+  const endpointCallResult = await axios.get(URL, {
+    headers: header,
+    responseType: "blob",
+  });
+
+  checkCurrentUserData(endpointCallResult);
+
+  return endpointCallResult;
 };
 
 export const getFileById = async (
@@ -34,7 +46,14 @@ export const getFileById = async (
   }
 
   const URL: string = API + endpoint;
-  return axios.get(`${URL}/${id}`, { headers: header, responseType: "blob" });
+  const endpointCallResult = await axios.get(`${URL}/${id}`, {
+    headers: header,
+    responseType: "blob",
+  });
+
+  checkCurrentUserData(endpointCallResult);
+
+  return endpointCallResult;
 };
 
 export const getById = async (
@@ -48,7 +67,13 @@ export const getById = async (
   }
 
   const URL: string = API + endpoint;
-  return axios.get(`${URL}/${id}`, { headers: header });
+  const endpointCallResult = await axios.get(`${URL}/${id}`, {
+    headers: header,
+  });
+
+  checkCurrentUserData(endpointCallResult);
+
+  return endpointCallResult;
 };
 
 export const post = async (
@@ -63,7 +88,13 @@ export const post = async (
   }
 
   const URL: string = API + endpoint;
-  return axios.post(URL, modelToPost, { headers: header });
+  const endpointCallResult = await axios.post(URL, modelToPost, {
+    headers: header,
+  });
+
+  checkCurrentUserData(endpointCallResult);
+
+  return endpointCallResult;
 };
 
 export const remove = async (
@@ -77,5 +108,17 @@ export const remove = async (
   }
 
   const URL: string = API + endpoint;
-  return axios.delete(`${URL}/${id}`, { headers: header });
+  const endpointCallResult = await axios.delete(`${URL}/${id}`, {
+    headers: header,
+  });
+
+  checkCurrentUserData(endpointCallResult);
+
+  return endpointCallResult;
+};
+
+const checkCurrentUserData = (res: AxiosResponse<any, any>) => {
+  if (res && res.status === HttpStatusCode.Forbidden) {
+    removeCurrentUserData();
+  }
 };
