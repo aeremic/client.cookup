@@ -2,13 +2,10 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { HttpStatusCode } from "axios";
 import { externalLogin } from "../../../services/axios/endpoint-calls/users/auth";
 import { Trans } from "react-i18next";
-import { setItemByKey } from "../../../services/store/localStorage";
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../../hooks/UserContext";
+import { useEffect, useState } from "react";
+import { setCurrentUserData } from "../../../store/local-storage-auth-helper";
 
 const GoogleLoginComponent = () => {
-  const { setUser } = useContext(UserContext);
-
   const [loading, setLoading] = useState<boolean>();
 
   useEffect(() => {
@@ -21,14 +18,7 @@ const GoogleLoginComponent = () => {
         authorizationCode: code,
       }).then((res: any) => {
         if (res && res.status === HttpStatusCode.Ok && res.data) {
-          setItemByKey("accessToken", JSON.stringify(res.data.token));
-
-          setUser({
-            email: "test",
-            role: "test",
-            username: "test",
-            isAuthenticated: true,
-          });
+          setCurrentUserData(JSON.stringify(res.data.token));
         }
 
         setLoading(false);
