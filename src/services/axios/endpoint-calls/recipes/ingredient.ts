@@ -1,4 +1,4 @@
-import { get } from "../../base-wrapper";
+import { get } from "../../base";
 
 const URL = "/ingredients";
 

@@ -1,5 +1,5 @@
 import { IGetRecommendedRecipes } from "../../../../pages/FindRecipes/models/IGetRecommendedRecipes";
-import { get, post } from "../../base-wrapper";
+import { get, post } from "../../base";
 
 const URL = "/recipes";
 

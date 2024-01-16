@@ -3,7 +3,7 @@ import { createAuthHeader } from "./headers";
 
 export const API = import.meta.env.VITE_API_URL;
 
-export const axiosGet = async (endpoint: string, useAuthHeader: boolean) => {
+export const get = async (endpoint: string, useAuthHeader = true) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
     header.Authorization = createAuthHeader();
@@ -13,10 +13,34 @@ export const axiosGet = async (endpoint: string, useAuthHeader: boolean) => {
   return axios.get(URL, { headers: header });
 };
 
-export const axiosGetById = async (
+export const getFile = async (endpoint: string, useAuthHeader = true) => {
+  const header = { Authorization: "" };
+  if (useAuthHeader) {
+    header.Authorization = createAuthHeader();
+  }
+
+  const URL: string = API + endpoint;
+  return axios.get(URL, { headers: header, responseType: "blob" });
+};
+
+export const getFileById = async (
   endpoint: string,
   id: number,
-  useAuthHeader: boolean
+  useAuthHeader = true
+) => {
+  const header = { Authorization: "" };
+  if (useAuthHeader) {
+    header.Authorization = createAuthHeader();
+  }
+
+  const URL: string = API + endpoint;
+  return axios.get(`${URL}/${id}`, { headers: header, responseType: "blob" });
+};
+
+export const getById = async (
+  endpoint: string,
+  id: number,
+  useAuthHeader = true
 ) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {
@@ -27,11 +51,11 @@ export const axiosGetById = async (
   return axios.get(`${URL}/${id}`, { headers: header });
 };
 
-export const axiosPost = async (
+export const post = async (
   endpoint: string,
   modelToPost: any,
-  useAuthHeader: boolean,
-  contentType: string
+  useAuthHeader = true,
+  contentType = "application/json"
 ) => {
   const header = { Authorization: "", "Content-Type": contentType };
   if (useAuthHeader) {
@@ -42,10 +66,10 @@ export const axiosPost = async (
   return axios.post(URL, modelToPost, { headers: header });
 };
 
-export const axiosRemove = async (
+export const remove = async (
   endpoint: string,
   id: number,
-  useAuthHeader: boolean
+  useAuthHeader = true
 ) => {
   const header = { Authorization: "" };
   if (useAuthHeader) {

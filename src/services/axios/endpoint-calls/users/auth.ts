@@ -1,5 +1,5 @@
 import { IExternalLogin } from "../../../../models/IExternalLogin";
-import { post } from "../../base-wrapper";
+import { post } from "../../base";
 
 const URL = "/auth";
 
