@@ -14,7 +14,7 @@ const PickItemsComponent = () => {
   const [ingredients, setIngredients] = useState<IIngredient[]>([]);
 
   useEffect(() => {
-    getIngredients().then((res) => {
+    getIngredients().then((res: any) => {
       if (
         res &&
         res.status === HttpStatusCode.Ok &&
