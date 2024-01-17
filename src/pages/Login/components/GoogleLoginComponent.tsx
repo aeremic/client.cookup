@@ -4,8 +4,11 @@ import { externalLogin } from "../../../services/axios/endpoint-calls/users/auth
 import { Trans } from "react-i18next";
 import { useEffect, useState } from "react";
 import { setCurrentUserData } from "../../../store/local-storage-auth-helper";
+import { useNavigate } from "react-router-dom";
 
 const GoogleLoginComponent = () => {
+  const navigate = useNavigate();
+
   const [loading, setLoading] = useState<boolean>();
 
   useEffect(() => {
@@ -19,6 +22,10 @@ const GoogleLoginComponent = () => {
       }).then((res: any) => {
         if (res && res.status === HttpStatusCode.Ok && res.data) {
           setCurrentUserData(JSON.stringify(res.data.token));
+
+          navigate(`/pickitems`, {
+            replace: true,
+          });
         }
 
         setLoading(false);

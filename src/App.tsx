@@ -10,8 +10,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        /** Login flow */
+        /** Home flow */
         <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<LoginPage />} />
+        /** Login flow */
         <Route path="/login" element={<LoginPage />} />
         /** User flow */
         <Route
