@@ -5,7 +5,7 @@ import {
 } from "./local-storage";
 
 export const setCurrentUserData = (token: string) => {
-  setInLocalStorage("accessToken", JSON.stringify(token));
+  setInLocalStorage("accessToken", token);
 };
 
 export const getCurrentUserData = () => {

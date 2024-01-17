@@ -118,7 +118,7 @@ export const remove = async (
 };
 
 const checkCurrentUserData = (res: AxiosResponse<any, any>) => {
-  if (res && res.status === HttpStatusCode.Forbidden) {
+  if (res && res.status === HttpStatusCode.Unauthorized) {
     removeCurrentUserData();
   }
 };
