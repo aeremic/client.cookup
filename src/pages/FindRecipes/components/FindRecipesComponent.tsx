@@ -42,9 +42,9 @@ const FindRecipesComponent = () => {
   };
 
   return (
-    <div className="container min-h-screen w-auto sm:w-1/2">
+    <div className="w-auto sm:w-1/2 min-h-screen container">
       {recommendedRecipesLoaded ? (
-        <div className="grid grid-cols-1 gap-6">
+        <div className="gap-6 grid grid-cols-1">
           <div className="p-4 sm:p-4 prose lg:prose-lg text-center sm:text-left">
             <h3>
               <Trans i18nKey="RecommendedRecipesSubtitle" />
@@ -65,7 +65,7 @@ const FindRecipesComponent = () => {
                       />
                     </figure>
                   )}
-                  <div className="card-body sm:max-w-md">
+                  <div className="sm:max-w-md card-body">
                     <h2 className="card-title">{recipe.name}</h2>
                     <div>
                       <p className="mb-1">{recipe.description}</p>
@@ -83,40 +83,40 @@ const FindRecipesComponent = () => {
                       ) : (
                         <></>
                       )}
-                      <div className="badge badge-ghost m-1">
+                      <div className="m-1 badge badge-ghost">
                         {t("AndMore")}
                       </div>
                     </div>
-                    <div className="rating gap-1">
+                    <div className="gap-1 rating">
                       <input
                         type="radio"
                         name="rating-3"
-                        className="mask mask-heart bg-red-400"
+                        className="bg-red-400 mask mask-heart"
                       />
                       <input
                         type="radio"
                         name="rating-3"
-                        className="mask mask-heart bg-red-400"
+                        className="bg-red-400 mask mask-heart"
                       />
                       <input
                         type="radio"
                         name="rating-3"
-                        className="mask mask-heart bg-red-400"
+                        className="bg-red-400 mask mask-heart"
                         checked
                         readOnly
                       />
                       <input
                         type="radio"
                         name="rating-3"
-                        className="mask mask-heart bg-red-400"
+                        className="bg-red-400 mask mask-heart"
                       />
                       <input
                         type="radio"
                         name="rating-3"
-                        className="mask mask-heart bg-red-400"
+                        className="bg-red-400 mask mask-heart"
                       />
                     </div>
-                    <div className="card-actions justify-end">
+                    <div className="justify-end card-actions">
                       <button
                         className="btn btn-primary"
                         onClick={() => {
@@ -141,7 +141,7 @@ const FindRecipesComponent = () => {
         </div>
       ) : (
         <>
-          <span className="loading loading-spinner loading-lg flex h-screen items-center m-auto"></span>
+          <span className="flex items-center m-auto h-screen loading loading-lg loading-spinner"></span>
         </>
       )}
     </div>

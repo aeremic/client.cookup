@@ -54,34 +54,34 @@ const CookingComponent = () => {
   };
 
   return (
-    <div className="container min-h-screen w-auto sm:w-1/2">
+    <div className="w-auto sm:w-1/2 min-h-screen container">
       {recipe && isRecipeLoaded ? (
-        <div className="grid grid-cols-1 gap-6">
-          <div className="card bg-base-100 shadow-xl">
+        <div className="gap-6 grid grid-cols-1">
+          <div className="bg-base-100 shadow-xl card">
             {recipe.thumbnailPath && (
               <figure>
                 <img
-                  className="w-full sm:w-96 sm:rounded-md shadow-xl"
+                  className="shadow-xl sm:rounded-md w-full sm:w-96"
                   src={recipe.thumbnailPath}
                 />
               </figure>
             )}
-            <div className="card-body container mx-auto">
+            <div className="mx-auto card-body container">
               <h2 className="card-title">{recipe.name}</h2>
               <div>
-                {/* <div className="badge badge-ghost mr-1">15 min</div> */}
+                {/* <div className="mr-1 badge badge-ghost">15 min</div> */}
                 {recipe.complexity && (
-                  <div className="badge badge-ghost mr-1">
+                  <div className="mr-1 badge badge-ghost">
                     {parseComplexity(recipe.complexity)}
                   </div>
                 )}
                 {recipe.calories && (
-                  <div className="badge badge-ghost mr-1">
+                  <div className="mr-1 badge badge-ghost">
                     {recipe.calories} {t("kcal")}
                   </div>
                 )}
                 {recipe.plateQuantity && (
-                  <div className="badge badge-ghost mr-1">
+                  <div className="mr-1 badge badge-ghost">
                     {recipe.plateQuantity} {t("persons")}
                   </div>
                 )}
@@ -91,7 +91,7 @@ const CookingComponent = () => {
                 {recipe.ingredients && recipe.ingredients.length > 0 ? (
                   <>
                     <p className="mb-3">{t("Ingredients")}</p>
-                    <div className="m-1 border-2 rounded-2xl overflow-x-auto">
+                    <div className="border-2 m-1 rounded-2xl overflow-x-auto">
                       <table className="table table-zebra">
                         <tbody>
                           {recipe.ingredients.map((ingredient, index) => (
@@ -113,7 +113,7 @@ const CookingComponent = () => {
                 {recipe.steps && recipe.steps.length > 0 ? (
                   <>
                     <p className="mb-3">{t("Procedure")}</p>
-                    <div className="m-1 border-2 rounded-2xl overflow-x-auto">
+                    <div className="border-2 m-1 rounded-2xl overflow-x-auto">
                       <table className="table table-zebra">
                         <tbody>
                           {recipe.steps.map((step, index) => (
@@ -135,7 +135,7 @@ const CookingComponent = () => {
         </div>
       ) : (
         <>
-          <span className="loading loading-spinner loading-lg flex h-screen items-center m-auto"></span>
+          <span className="flex items-center m-auto h-screen loading loading-lg loading-spinner"></span>
         </>
       )}
     </div>

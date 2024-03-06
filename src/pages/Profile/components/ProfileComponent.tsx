@@ -4,16 +4,16 @@ const ProfileComponent = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="container min-h-screen w-auto sm:w-1/2">
+    <div className="w-auto sm:w-1/2 min-h-screen container">
       <div className="prose lg:prose-lg text-center sm:text-left">
         <h3>{t("Profile")}</h3>
       </div>
-      <div className="grid grid-cols-1 gap-6">
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body container mx-auto">
+      <div className="gap-6 grid grid-cols-1">
+        <div className="bg-base-100 shadow-xl card">
+          <div className="mx-auto card-body container">
             <div className="sm:flex sm:flex-row text-center sm:text-left">
               <div className="mb-3 sm:mb-0 sm:basis-1/5 avatar placeholder">
-                <div className="bg-primary text-neutral-content rounded-xl w-20">
+                <div className="bg-primary rounded-xl w-20 text-neutral-content">
                   <span className="text-xl">AE</span>
                 </div>
               </div>
@@ -21,33 +21,33 @@ const ProfileComponent = () => {
                 <div className="prose lg:prose-lg">
                   <h3>andrija.eremic</h3>
                 </div>
-                <div className="rating gap-1 sm:mt-1">
+                <div className="gap-1 sm:mt-1 rating">
                   <input
                     type="radio"
                     name="rating-3"
-                    className="mask mask-heart bg-red-400"
+                    className="bg-red-400 mask mask-heart"
                   />
                   <input
                     type="radio"
                     name="rating-3"
-                    className="mask mask-heart bg-red-400"
+                    className="bg-red-400 mask mask-heart"
                   />
                   <input
                     type="radio"
                     name="rating-3"
-                    className="mask mask-heart bg-red-400"
+                    className="bg-red-400 mask mask-heart"
                     checked
                     readOnly
                   />
                   <input
                     type="radio"
                     name="rating-3"
-                    className="mask mask-heart bg-red-400"
+                    className="bg-red-400 mask mask-heart"
                   />
                   <input
                     type="radio"
                     name="rating-3"
-                    className="mask mask-heart bg-red-400"
+                    className="bg-red-400 mask mask-heart"
                   />
                 </div>
               </div>
