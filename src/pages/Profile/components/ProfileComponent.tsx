@@ -4,7 +4,7 @@ const ProfileComponent = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="w-auto sm:w-1/2 min-h-screen container">
+    <div className="w-auto sm:w-1/2 container">
       <div className="prose lg:prose-lg text-center sm:text-left">
         <h3>{t("Profile")}</h3>
       </div>
