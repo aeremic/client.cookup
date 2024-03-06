@@ -5,15 +5,26 @@ import FindRecipesPage from "./pages/FindRecipes";
 import CookingPage from "./pages/Cooking";
 import LoginPage from "./pages/Login";
 import { PrivateRoute } from "./components/PrivateRouteComponent";
+import { LoginRoute } from "./components/LoginRouteComponent";
+import LandingPage from "./pages/Landing";
+import ProfilePage from "./pages/Profile";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         /** Home flow */
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/home" element={<LoginPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<LandingPage />} />
         /** Login flow */
+        <Route
+          path="/login"
+          element={
+            <LoginRoute>
+              <LoginPage />
+            </LoginRoute>
+          }
+        />
         <Route path="/login" element={<LoginPage />} />
         /** User flow */
         <Route
@@ -37,6 +48,14 @@ function App() {
           element={
             <PrivateRoute>
               <CookingPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
             </PrivateRoute>
           }
         />

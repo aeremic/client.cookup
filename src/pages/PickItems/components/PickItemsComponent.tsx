@@ -108,7 +108,9 @@ const PickItemsComponent = () => {
           <div>
             <div className="card w-auto sm:w-96 h-96 sm:h-auto bg-base-200 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">{t("PickItems")}</h2>
+                <h2 className="card-title">
+                  {t("PickItemsThatYouAlreadyHave")}
+                </h2>
                 <div className="form-control mt-3">
                   <input
                     type="text"

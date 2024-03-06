@@ -72,7 +72,7 @@ const CookingComponent = () => {
                 {/* <div className="badge badge-ghost mr-1">15 min</div> */}
                 {recipe.complexity && (
                   <div className="badge badge-ghost mr-1">
-                    {parseComplexity(0)}
+                    {parseComplexity(recipe.complexity)}
                   </div>
                 )}
                 {recipe.calories && (

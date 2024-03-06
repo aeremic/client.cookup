@@ -1,4 +1,9 @@
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
 const NavbarComponent = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -24,19 +29,22 @@ const NavbarComponent = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Homepage</a>
+              <Link to="/">{t("Homepage")}</Link>
             </li>
             <li>
-              <a>Portfolio</a>
+              <Link to="/pickitems">{t("PickItems")}</Link>
             </li>
             <li>
-              <a>About</a>
+              <Link to="/profile">{t("Profile")}</Link>
+            </li>
+            <li>
+              <Link to="/logout">{t("Logout")}</Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">CookUp!</a>
+        <a className="btn btn-ghost text-xl">{t("Title")}</a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
