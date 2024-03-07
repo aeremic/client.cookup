@@ -1,8 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { removeCurrentUserData } from "../store/local-storage-auth-helper";
 
 const NavbarComponent = () => {
   const { t } = useTranslation();
+
+  const onLogoutClick = () => {
+    removeCurrentUserData();
+  };
 
   return (
     <div className="bg-base-100 navbar">
@@ -38,7 +43,9 @@ const NavbarComponent = () => {
               <Link to="/profile">{t("Profile")}</Link>
             </li>
             <li>
-              <Link to="/logout">{t("Logout")}</Link>
+              <Link to="/" onClick={onLogoutClick}>
+                {t("Logout")}
+              </Link>
             </li>
           </ul>
         </div>
