@@ -6,7 +6,7 @@ const LoginPage = () => {
   return (
     <>
       <ErrorBoundary fallback={<ErrorComponent />}>
-        <div className="sm:flex sm:h-screen sm:items-center">
+        <div className="flex items-center min-h-screen">
           <LoginCommponent />
         </div>
       </ErrorBoundary>

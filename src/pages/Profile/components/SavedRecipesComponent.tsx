@@ -9,7 +9,7 @@ const SavedRecipesComponent = () => {
         <div className="bg-base-100 shadow-xl card">
           <div className="mx-auto card-body container">
             <div className="prose lg:prose-lg">
-              <h4>Saved recipes</h4>
+              <h4>{t("SavedRecipes")}</h4>
             </div>
           </div>
         </div>
