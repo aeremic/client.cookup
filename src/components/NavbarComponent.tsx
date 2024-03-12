@@ -70,7 +70,7 @@ const NavbarComponent = () => {
             />
           </svg>
         </button>
-        <button className="btn btn-circle btn-ghost">
+        {/* <button className="btn btn-circle btn-ghost">
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ const NavbarComponent = () => {
             </svg>
             <span className="badge badge-primary badge-xs indicator-item"></span>
           </div>
-        </button>
+        </button> */}
       </div>
     </div>
   );

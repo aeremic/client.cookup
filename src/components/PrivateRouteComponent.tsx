@@ -3,8 +3,8 @@ import { Navigate } from "react-router-dom";
 import useCurrentUserIdentifier from "../hooks/UseCurrentUserIdentifier";
 
 export function PrivateRoute({ children }: { children: ReactNode }) {
-  const currentUserEmail = useCurrentUserIdentifier();
-  const canAccess = currentUserEmail && currentUserEmail !== "";
+  const currentUserGuid = useCurrentUserIdentifier();
+  const canAccess = currentUserGuid && currentUserGuid !== "";
 
   if (canAccess) {
     return <Fragment>{children}</Fragment>;

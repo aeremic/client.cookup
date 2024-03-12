@@ -91,8 +91,8 @@ const PickItemsComponent = () => {
 
   return (
     <>
-      <div className="container w-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-6">
+      <div className="w-auto container">
+        <div className="sm:gap-6 grid grid-cols-1 sm:grid-cols-2">
           <div className="sm:col-span-2 h-28 sm:h-24">
             <div className="p-4 sm:p-4 prose lg:prose-lg text-center sm:text-left">
               {/* <h3 className="">
@@ -106,7 +106,7 @@ const PickItemsComponent = () => {
             </div>
           </div>
           <div>
-            <div className="card w-auto sm:w-96 h-96 sm:h-auto bg-base-200 shadow-xl">
+            <div className="bg-base-200 shadow-xl w-auto sm:w-96 h-96 sm:h-auto card">
               <div className="card-body">
                 <h2 className="card-title">
                   {t("PickItemsThatYouAlreadyHave")}
@@ -116,7 +116,7 @@ const PickItemsComponent = () => {
                     type="text"
                     placeholder="Search"
                     onChange={handleSearchChange}
-                    className="input input-bordered input-md w-full"
+                    className="input-bordered w-full input input-md"
                   />
                   <div className="mt-3 h-56 sm:h-56 overflow-y-auto">
                     {ingredients && ingredients.length > 0 ? (
@@ -124,7 +124,7 @@ const PickItemsComponent = () => {
                         (ingredient) =>
                           ingredient.visible && (
                             <label
-                              className="label cursor-pointer mr-1"
+                              className="mr-1 cursor-pointer label"
                               key={ingredient.id}
                             >
                               <span className="label-text">
@@ -149,7 +149,7 @@ const PickItemsComponent = () => {
             </div>
           </div>
           <div>
-            <div className="card mt-8 sm:mt-0 mb-8 sm:mb-0 w-auto sm:w-96 h-96 sm:h-auto bg-base-200 shadow-xl">
+            <div className="bg-base-200 shadow-xl mt-8 sm:mt-0 mb-8 sm:mb-0 w-auto sm:w-96 h-96 sm:h-auto card">
               <div className="card-body">
                 <h2 className="card-title">{t("PickedItems")}</h2>
                 <div className="form-control mt-2 mb-2">
@@ -157,7 +157,7 @@ const PickItemsComponent = () => {
                     {ingredients && ingredients.length > 0 ? (
                       ingredients.map((ingredient) => (
                         <div
-                          className="bg-base-300 p-3 mb-2 mr-1 rounded-lg"
+                          className="bg-base-300 mr-1 mb-2 p-3 rounded-lg"
                           key={ingredient.id}
                           hidden={!ingredient.checked}
                         >
@@ -169,7 +169,7 @@ const PickItemsComponent = () => {
                     )}
                   </div>
                 </div>
-                <div className="card-actions justify-end mr-1">
+                <div className="justify-end mr-1 card-actions">
                   <button
                     className="btn btn-md btn-primary"
                     onClick={handleFindRecipesClick}

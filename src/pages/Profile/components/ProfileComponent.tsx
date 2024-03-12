@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IUser } from "../models/IUser";
 import { HttpStatusCode } from "axios";
-import { getUserByEmail } from "../../../services/axios/endpoint-calls/users/users";
+import { getUserByGuid } from "../../../services/axios/endpoint-calls/users/users";
 import useCurrentUserIdentifier from "../../../hooks/UseCurrentUserIdentifier";
 
 const ProfileComponent = () => {
   const { t } = useTranslation();
 
-  const currentUserEmail = useCurrentUserIdentifier();
+  const currentUserGuid = useCurrentUserIdentifier();
 
   const [user, setUser] = useState<IUser>();
   const [userLoaded, setUserLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchUser = async () => {
-      if (currentUserEmail) {
-        getUserByEmail(currentUserEmail).then((res) => {
+      if (currentUserGuid) {
+        getUserByGuid(currentUserGuid).then((res) => {
           if (res && res.status === HttpStatusCode.Ok && res.data) {
             setUser(res.data);
             setUserLoaded(true);
@@ -26,7 +26,7 @@ const ProfileComponent = () => {
     };
 
     fetchUser();
-  }, [currentUserEmail]);
+  }, [currentUserGuid]);
 
   return (
     <div className="w-auto sm:w-1/2 container">

@@ -8,6 +8,7 @@ export interface IRecipe {
   calories?: number;
   plateQuantity: number;
   thumbnailPath: string;
+  isRecipeLiked: boolean;
 
   steps?: IStep[];
   ingredients?: IIngredient[];
