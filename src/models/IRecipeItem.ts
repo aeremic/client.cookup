@@ -1,6 +1,6 @@
-import { IIngredient } from "./IIngredient";
+import { IIngredient } from "../pages/FindRecipes/models/IIngredient";
 
-export interface IRecommendedRecipe {
+export interface IRecipeItem {
   id: number;
   name: string;
   description: string;
