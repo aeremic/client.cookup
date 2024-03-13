@@ -12,7 +12,7 @@ const RecipesListComponent = ({ recipes }: IRecipesListProps) => {
   };
 
   return (
-    <>
+    <div className="gap-6 grid grid-cols-1">
       {recipes.length > 0 ? (
         recipes.map((recipe, index) => (
           <div key={index} className="card sm:card-side bg-base-100 shadow-xl">
@@ -90,11 +90,11 @@ const RecipesListComponent = ({ recipes }: IRecipesListProps) => {
         <div className="card sm:card-side bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">{t("NoRecipesFound")}</h2>
-            <p>{t("WeDidntFindAnyRecepiesWithThoseIngredients")}</p>
+            <p>{t("WeDidntFindAnyRecepies")}</p>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

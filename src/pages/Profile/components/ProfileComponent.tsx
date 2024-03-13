@@ -54,11 +54,25 @@ const ProfileComponent = () => {
                       type="radio"
                       name="rating-3"
                       className="bg-red-400 mask mask-heart"
+                      readOnly
                     />
                     <input
                       type="radio"
                       name="rating-3"
                       className="bg-red-400 mask mask-heart"
+                      readOnly
+                    />
+                    <input
+                      type="radio"
+                      name="rating-3"
+                      className="bg-red-400 mask mask-heart"
+                      readOnly
+                    />
+                    <input
+                      type="radio"
+                      name="rating-3"
+                      className="bg-red-400 mask mask-heart"
+                      readOnly
                     />
                     <input
                       type="radio"
@@ -66,16 +80,6 @@ const ProfileComponent = () => {
                       className="bg-red-400 mask mask-heart"
                       checked
                       readOnly
-                    />
-                    <input
-                      type="radio"
-                      name="rating-3"
-                      className="bg-red-400 mask mask-heart"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-3"
-                      className="bg-red-400 mask mask-heart"
                     />
                   </div>
                 </div>

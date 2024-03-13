@@ -37,14 +37,16 @@ const FindRecipesComponent = () => {
   return (
     <div className="w-auto sm:w-1/2 min-h-screen container">
       {recommendedRecipesLoaded ? (
-        <div className="gap-6 grid grid-cols-1">
-          <div className="p-4 sm:p-4 prose lg:prose-lg text-center sm:text-left">
-            <h3>
-              <Trans i18nKey="RecommendedRecipesSubtitle" />
-            </h3>
+        <>
+          <div className="gap-6 grid grid-cols-1">
+            <div className="p-4 sm:p-4 prose lg:prose-lg text-center sm:text-left">
+              <h3>
+                <Trans i18nKey="RecommendedRecipesSubtitle" />
+              </h3>
+            </div>
           </div>
           <RecipesListComponent recipes={recommendedRecipes} />
-        </div>
+        </>
       ) : (
         <>
           <span className="flex items-center m-auto h-screen loading loading-lg loading-spinner"></span>

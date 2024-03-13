@@ -34,3 +34,13 @@ export const saveRecipe = async (recipeId: number, userGuid: string) => {
     console.log(err); // TODO: Fix for PROD.
   }
 };
+
+export const getSavedRecipes = async (userGuid: string) => {
+  try {
+    return await post(`${URL}/getlikedrecipes`, {
+      userGuid: userGuid,
+    });
+  } catch (err) {
+    console.log(err); // TODO: Fix for PROD.
+  }
+};
