@@ -30,7 +30,7 @@ const ProfileComponent = () => {
 
   return (
     <div className="w-auto sm:w-1/2 container">
-      <div className="prose lg:prose-lg text-center sm:text-left">
+      <div className="prose lg:prose-lg mb-3 text-center sm:text-left">
         <h3>{t("Profile")}</h3>
       </div>
       <div className="gap-6 grid grid-cols-1">
@@ -54,32 +54,31 @@ const ProfileComponent = () => {
                       type="radio"
                       name="rating-3"
                       className="bg-red-400 mask mask-heart"
-                      readOnly
+                      disabled={true}
                     />
                     <input
                       type="radio"
                       name="rating-3"
                       className="bg-red-400 mask mask-heart"
-                      readOnly
+                      disabled={true}
                     />
                     <input
                       type="radio"
                       name="rating-3"
                       className="bg-red-400 mask mask-heart"
-                      readOnly
+                      disabled={true}
                     />
                     <input
                       type="radio"
                       name="rating-3"
                       className="bg-red-400 mask mask-heart"
-                      readOnly
+                      disabled={true}
                     />
                     <input
                       type="radio"
                       name="rating-3"
                       className="bg-red-400 mask mask-heart"
-                      checked
-                      readOnly
+                      disabled={true}
                     />
                   </div>
                 </div>

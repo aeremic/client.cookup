@@ -32,7 +32,7 @@ const SavedRecipesComponent = () => {
     <>
       {savedRecipesLoaded && (
         <div className="w-auto sm:w-1/2 container">
-          <div className="prose lg:prose-lg text-center sm:text-left">
+          <div className="prose lg:prose-lg mb-3 text-center sm:text-left">
             <h3>{t("SavedRecipes")}</h3>
           </div>
           <RecipesListComponent recipes={savedRecipes} />

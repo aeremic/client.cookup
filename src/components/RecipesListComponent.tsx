@@ -75,7 +75,7 @@ const RecipesListComponent = ({ recipes }: IRecipesListProps) => {
               </div>
               <div className="justify-end card-actions">
                 <button
-                  className="btn btn-primary"
+                  className="shadow-xl btn btn-primary"
                   onClick={() => {
                     handleLetsCookClick(recipe.id);
                   }}

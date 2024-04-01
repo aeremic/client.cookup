@@ -171,8 +171,14 @@ const PickItemsComponent = () => {
                 </div>
                 <div className="justify-end mr-1 card-actions">
                   <button
-                    className="btn btn-md btn-primary"
+                    className="shadow-xl btn btn-md btn-primary"
                     onClick={handleFindRecipesClick}
+                    disabled={
+                      !(
+                        ingredients.filter((ingredient) => ingredient.checked)
+                          .length > 0
+                      )
+                    }
                   >
                     {t("FindRecipes")}
                   </button>

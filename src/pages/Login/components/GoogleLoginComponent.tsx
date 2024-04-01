@@ -39,7 +39,7 @@ const GoogleLoginComponent = () => {
       {!loading ? (
         <div>
           <button
-            className="btn btn-wide"
+            className="shadow-xl btn btn-wide"
             onClick={() => {
               setLoading(true);
               googleLogin();
@@ -49,7 +49,7 @@ const GoogleLoginComponent = () => {
           </button>
         </div>
       ) : (
-        <span className="loading loading-spinner loading-lg"></span>
+        <span className="loading loading-lg loading-spinner"></span>
       )}
     </>
   );

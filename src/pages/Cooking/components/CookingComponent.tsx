@@ -8,6 +8,7 @@ import {
 } from "../../../services/axios/endpoint-calls/recipes/recipes";
 import { useTranslation } from "react-i18next";
 import useCurrentUserIdentifier from "../../../hooks/UseCurrentUserIdentifier";
+import { ComplexityConstants } from "../../../common/Constants";
 
 const CookingComponent = () => {
   const { t } = useTranslation();
@@ -57,19 +58,19 @@ const CookingComponent = () => {
 
     switch (complexity) {
       case 0: {
-        result = "Easy";
+        result = ComplexityConstants.Easy;
         break;
       }
       case 1: {
-        result = "Moderate";
+        result = ComplexityConstants.Moderate;
         break;
       }
       case 2: {
-        result = "Hard";
+        result = ComplexityConstants.Hard;
         break;
       }
       default: {
-        result = "";
+        result = ComplexityConstants.Non;
         break;
       }
     }
@@ -109,11 +110,14 @@ const CookingComponent = () => {
                     {recipe.plateQuantity} {t("persons")}
                   </div>
                 )}
+                {recipe.description && (
+                  <p className="mt-3 mb-3">{recipe.description}</p>
+                )}
               </div>
               <div>
                 {isRecipeSaved ? (
                   <button
-                    className="mt-1 btn btn-md btn-secondary"
+                    className="shadow-xl mt-1 btn btn-md btn-secondary"
                     onClick={() => {
                       handleSaveRecipeClick();
                     }}
@@ -131,7 +135,7 @@ const CookingComponent = () => {
                   </button>
                 ) : (
                   <button
-                    className="mt-1 btn btn-md btn-outline btn-secondary"
+                    className="shadow-xl mt-1 btn btn-md btn-outline btn-secondary"
                     onClick={() => {
                       handleSaveRecipeClick();
                     }}
@@ -154,48 +158,65 @@ const CookingComponent = () => {
                 )}
               </div>
               <div className="divider"></div>
-              <div>
-                {recipe.ingredients && recipe.ingredients.length > 0 ? (
-                  <>
-                    <p className="mb-3">{t("Ingredients")}</p>
-                    <div className="border-2 m-1 rounded-2xl overflow-x-auto">
-                      <table className="table table-zebra">
-                        <tbody>
-                          {recipe.ingredients.map((ingredient, index) => (
-                            <tr key={index}>
-                              <th>{index + 1}</th>
-                              <td>{ingredient.name}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
+              <div
+                tabIndex={0}
+                className="bg-base-200 shadow-xl mb-5 border border-base-300 collapse collapse-plus"
+              >
+                <div className="font-medium text-lg collapse-title">
+                  <p>{t("Ingredients")}</p>
+                </div>
+                <div className="collapse-content">
+                  <div>
+                    {recipe.ingredients && recipe.ingredients.length > 0 ? (
+                      <>
+                        <div className="m-1 rounded-2xl overflow-x-auto">
+                          <table className="table">
+                            <tbody>
+                              {recipe.ingredients.map((ingredient, index) => (
+                                <tr key={index}>
+                                  <th>{index + 1}</th>
+                                  <td>{ingredient.name}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </div>
               </div>
-              <div className="divider"></div>
-              <div>
-                {recipe.steps && recipe.steps.length > 0 ? (
-                  <>
-                    <p className="mb-3">{t("Procedure")}</p>
-                    <div className="border-2 m-1 rounded-2xl overflow-x-auto">
-                      <table className="table table-zebra">
-                        <tbody>
-                          {recipe.steps.map((step, index) => (
-                            <tr key={index}>
-                              <th>{index + 1}</th>
-                              <td>{step.value}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
+              <div
+                tabIndex={0}
+                className="bg-base-200 shadow-xl border border-base-300 collapse collapse-plus"
+              >
+                <div className="font-medium text-lg collapse-title">
+                  <p>{t("Procedure")}</p>
+                </div>
+                <div className="collapse-content">
+                  <div>
+                    {recipe.steps && recipe.steps.length > 0 ? (
+                      <>
+                        <div className="m-1 rounded-2xl overflow-x-auto">
+                          <table className="table">
+                            <tbody>
+                              {recipe.steps.map((step, index) => (
+                                <tr key={index}>
+                                  <th>{index + 1}</th>
+                                  <td>{step.value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
