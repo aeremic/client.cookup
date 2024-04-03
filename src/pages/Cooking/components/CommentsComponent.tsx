@@ -1,5 +1,9 @@
+import { HttpStatusCode } from "axios";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
+import { IComment } from "../models/IComment";
+import { getComments } from "../../../services/axios/endpoint-calls/recipes/comments";
 
 const CommentsComponent = () => {
   const { t } = useTranslation();
@@ -9,6 +13,24 @@ const CommentsComponent = () => {
   const recipeIdQueryParam: string | null = queryParameters.get("recipeId");
   const recipeId: number =
     recipeIdQueryParam != null ? parseInt(recipeIdQueryParam) : -1;
+
+  const [comments, setComments] = useState<IComment[]>([]);
+  const [commentsLoaded, setCommentsLoaded] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      if (recipeId != -1) {
+        getComments(recipeId).then((res) => {
+          if (res && res.status === HttpStatusCode.Ok && res.data) {
+            setComments(res.data);
+            setCommentsLoaded(true);
+          }
+        });
+      }
+    };
+
+    fetchComments();
+  }, [recipeId]);
 
   return (
     <div className="w-auto sm:w-1/2 container">
