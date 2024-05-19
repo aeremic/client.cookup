@@ -41,7 +41,7 @@ const ProfileComponent = () => {
                 <div className="mb-3 sm:mb-0 sm:basis-1/5 avatar placeholder">
                   <div className="bg-primary rounded-xl w-20 text-neutral-content">
                     <span className="text-xl">
-                      {user?.username[0]?.toUpperCase()}
+                      {user?.username ? user?.username[0]?.toUpperCase() : ""}
                     </span>
                   </div>
                 </div>
