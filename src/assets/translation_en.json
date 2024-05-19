@@ -24,5 +24,9 @@
   "SavedRecipes": "Saved recipes",
   "Save": "Save",
   "Saved": "Saved",
-  "PostComment": "Post Comment"
+  "PostComment": "Post Comment",
+  "Comments": "Comments",
+  "LeaveYourComment": "Leave your comment",
+  "CommentSuccessfullyAdded": "Comment successfully added.",
+  "SomethingWentWrong": "Something went wrong."
 }
