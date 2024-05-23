@@ -95,7 +95,7 @@ const CookingComponent = () => {
               <h2 className="card-title">{recipe.name}</h2>
               <div>
                 {/* <div className="mr-1 badge badge-ghost">15 min</div> */}
-                {recipe.complexity && (
+                {recipe.complexity != null && (
                   <div className="mr-1 badge badge-ghost">
                     {parseComplexity(recipe.complexity)}
                   </div>

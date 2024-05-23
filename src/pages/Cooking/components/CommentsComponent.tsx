@@ -29,6 +29,7 @@ const CommentsComponent = () => {
   const [commentsLoaded, setCommentsLoaded] = useState<boolean>(false);
 
   const [newCommentContent, setNewCommentContent] = useState<string>("");
+  const [newRating, setNewRating] = useState<number>(5);
   const [showAlertSuccess, setShowAlertSuccess] = useState<boolean>(false);
   const [showAlertFailure, setShowAlertFailure] = useState<boolean>(false);
 
@@ -65,6 +66,10 @@ const CommentsComponent = () => {
     setNewCommentContent(event.target.value);
   };
 
+  const handleRatingChange = (ratingValue: number) => {
+    setNewRating(ratingValue);
+  };
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
@@ -72,7 +77,7 @@ const CommentsComponent = () => {
       recipeId: recipeId,
       content: newCommentContent,
       userGuid: currentUserGuid,
-      rating: 3, // TODO: Fix ratings
+      rating: newRating,
     };
 
     const currentComments = [...comments];
@@ -81,7 +86,7 @@ const CommentsComponent = () => {
         username: user?.username,
       },
       content: newCommentContent,
-      rating: 3,
+      rating: newRating,
     });
 
     setComments(currentComments);
@@ -125,39 +130,43 @@ const CommentsComponent = () => {
                             <div className="prose lg:prose-lg">
                               <h4>{comment.user.username}</h4>
                             </div>
-                            <div className="sm:mt-1 rating rating-sm sm:rating-md">
+                            <form className="sm:mt-1 rating rating-sm sm:rating-md">
                               <input
                                 type="radio"
                                 name="rating-5"
                                 className="bg-red-400 mask mask-heart"
-                                disabled={true}
+                                checked={comment.rating === 1}
+                                disabled
                               />
                               <input
                                 type="radio"
                                 name="rating-5"
                                 className="bg-red-400 mask mask-heart"
-                                disabled={true}
-                                checked
+                                checked={comment.rating === 2}
+                                disabled
                               />
                               <input
                                 type="radio"
                                 name="rating-5"
                                 className="bg-red-400 mask mask-heart"
-                                disabled={true}
+                                checked={comment.rating === 3}
+                                disabled
                               />
                               <input
                                 type="radio"
                                 name="rating-5"
                                 className="bg-red-400 mask mask-heart"
-                                disabled={true}
+                                checked={comment.rating === 4}
+                                disabled
                               />
                               <input
                                 type="radio"
                                 name="rating-5"
                                 className="bg-red-400 mask mask-heart"
-                                disabled={true}
+                                checked={comment.rating === 5}
+                                disabled
                               />
-                            </div>
+                            </form>
                           </div>
                         </div>
                         {comment.content.length > 0 ? (
@@ -212,32 +221,41 @@ const CommentsComponent = () => {
                               type="radio"
                               name="rating-5"
                               className="bg-red-400 mask mask-heart"
-                              disabled={false}
+                              onChange={() => {
+                                handleRatingChange(1);
+                              }}
                             />
                             <input
                               type="radio"
                               name="rating-5"
                               className="bg-red-400 mask mask-heart"
-                              disabled={false}
-                              checked
+                              onChange={() => {
+                                handleRatingChange(2);
+                              }}
                             />
                             <input
                               type="radio"
                               name="rating-5"
                               className="bg-red-400 mask mask-heart"
-                              disabled={false}
+                              onChange={() => {
+                                handleRatingChange(3);
+                              }}
                             />
                             <input
                               type="radio"
                               name="rating-5"
                               className="bg-red-400 mask mask-heart"
-                              disabled={false}
+                              onChange={() => {
+                                handleRatingChange(4);
+                              }}
                             />
                             <input
                               type="radio"
                               name="rating-5"
                               className="bg-red-400 mask mask-heart"
-                              disabled={false}
+                              onChange={() => {
+                                handleRatingChange(5);
+                              }}
                             />
                           </div>
                         </div>
