@@ -5,5 +5,6 @@ export interface IRecipeItem {
   name: string;
   description: string;
   thumbnailPath: string;
+  rating: number;
   ingredients: IIngredient[];
 }

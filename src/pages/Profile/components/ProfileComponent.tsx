@@ -49,7 +49,7 @@ const ProfileComponent = () => {
                   <div className="prose lg:prose-lg">
                     <h3>{user?.username}</h3>
                   </div>
-                  <div className="gap-1 sm:mt-1 rating">
+                  {/* <div className="gap-1 sm:mt-1 rating">
                     <input
                       type="radio"
                       name="rating-3"
@@ -80,7 +80,7 @@ const ProfileComponent = () => {
                       className="bg-red-400 mask mask-heart"
                       disabled={true}
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ) : (

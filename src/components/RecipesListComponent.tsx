@@ -44,35 +44,43 @@ const RecipesListComponent = ({ recipes }: IRecipesListProps) => {
                 )}
                 <div className="m-1 badge badge-ghost">{t("AndMore")}</div>
               </div>
-              <div className="gap-1 rating">
+              <form className="gap-1 rating">
                 <input
                   type="radio"
-                  name="rating-3"
+                  name="rating-5"
                   className="bg-red-400 mask mask-heart"
+                  checked={recipe.rating === 1}
+                  disabled
                 />
                 <input
                   type="radio"
-                  name="rating-3"
+                  name="rating-5"
                   className="bg-red-400 mask mask-heart"
+                  checked={recipe.rating === 2}
+                  disabled
                 />
                 <input
                   type="radio"
-                  name="rating-3"
+                  name="rating-5"
                   className="bg-red-400 mask mask-heart"
-                  checked
-                  readOnly
+                  checked={recipe.rating === 3}
+                  disabled
                 />
                 <input
                   type="radio"
-                  name="rating-3"
+                  name="rating-5"
                   className="bg-red-400 mask mask-heart"
+                  checked={recipe.rating === 4}
+                  disabled
                 />
                 <input
                   type="radio"
-                  name="rating-3"
+                  name="rating-5"
                   className="bg-red-400 mask mask-heart"
+                  checked={recipe.rating === 5}
+                  disabled
                 />
-              </div>
+              </form>
               <div className="justify-end card-actions">
                 <button
                   className="shadow-xl btn btn-primary"
